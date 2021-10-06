@@ -1,6 +1,9 @@
 import fastify from 'fastify'
+import routesV1 from './routes/v1'
 
 const server = fastify()
+
+server.register(routesV1, { prefix: '/v1' })
 
 server.get('/', async (request, reply) => {
   return {
